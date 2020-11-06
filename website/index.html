@@ -5,6 +5,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="assets/css/main.css"/>
+    <link rel="stylesheet" href="assets/css/slideshow.css"/>
 </head>
 <body>
 
@@ -30,39 +31,99 @@
 <!-- One -->
 <section id="one" class="wrapper special">
     <div class="inner">
-        <header class="align-center">
-            <h2>Structural Inspection Drone</h2>
-            <p>An autonomous approach to structural inpection</p>
-        </header>
-        <div class="flex flex-2">
-            <article>
-                <div class="image fit">
-                    <img src="images/pic01.jpg" alt="Pic 01"/>
-                </div>
-                <header>
-                    <h3>Praesent placerat magna</h3>
-                </header>
-                <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu
-                    erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor lorem ipsum.</p>
-                <footer>
-                    <a href="#" class="button special">More</a>
-                </footer>
-            </article>
-            <article>
-                <div class="image fit">
-                    <img src="images/pic02.jpg" alt="Pic 02"/>
-                </div>
-                <header>
-                    <h3>Fusce pellentesque tempus</h3>
-                </header>
-                <p>Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel,
-                    velit. Pellentesque egestas sem. Suspendisse commodo ullamcorper magna non comodo sodales
-                    tempus.</p>
-                <footer>
-                    <a href="#" class="button special">More</a>
-                </footer>
-            </article>
+        <h2>Architecture</h2>
+        <div class="align-left">
+            <p>
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                deleniti
+                atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+                similique
+                sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+                facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor
+                repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet
+                ut et
+                voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente
+                delectus,
+                ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+            </p>
         </div>
+        <div class="inner">
+            <div class="w3-container">
+                <div class="w3-mySlides">
+                    <div class="w3-numbertext">1 / 6</div>
+                    <img src="assets/images/img_woods_wide.jpg" style="width:100%">
+                </div>
+
+                <div class="w3-mySlides">
+                    <div class="w3-numbertext">2 / 6</div>
+                    <img src="assets/images/img_5terre_wide.jpg" style="width:100%">
+                </div>
+
+                <div class="w3-mySlides">
+                    <div class="w3-numbertext">3 / 6</div>
+                    <img src="assets/images/img_mountains_wide.jpg" style="width:100%">
+                </div>
+
+                <div class="w3-mySlides">
+                    <div class="w3-numbertext">4 / 6</div>
+                    <img src="assets/images/img_lights_wide.jpg" style="width:100%">
+                </div>
+
+                <div class="w3-mySlides">
+                    <div class="w3-numbertext">5 / 6</div>
+                    <img src="assets/images/img_nature_wide.jpg" style="width:100%">
+                </div>
+
+                <div class="w3-mySlides">
+                    <div class="w3-numbertext">6 / 6</div>
+                    <img src="assets/images/img_snow_wide.jpg" style="width:100%">
+                </div>
+
+                <a class="w3-prev" onclick="plusSlides(-1)">❮</a>
+                <a class="w3-next" onclick="plusSlides(1)">❯</a>
+
+                <div class="w3-body w3-caption-container">
+                    <p style="margin: .5em 0 .5em 0" id="caption"></p>
+                </div>
+
+                <div class="w3-row">
+                    <div class="w3-column">
+                        <img class="w3-demo w3-cursor" src="assets/images/img_woods.jpg" style="width:100%"
+                             onclick="currentSlide(1)"
+                             alt="The Woods">
+                    </div>
+                    <div class="w3-column">
+                        <img class="w3-demo w3-cursor" src="assets/images/img_5terre.jpg" style="width:100%"
+                             onclick="currentSlide(2)"
+                             alt="Cinque Terre">
+                    </div>
+                    <div class="w3-column">
+                        <img class="w3-demo w3-cursor" src="assets/images/img_mountains.jpg" style="width:100%"
+                             onclick="currentSlide(3)"
+                             alt="Mountains and fjords">
+                    </div>
+                    <div class="w3-column">
+                        <img class="w3-demo w3-cursor" src="assets/images/img_lights.jpg" style="width:100%"
+                             onclick="currentSlide(4)"
+                             alt="Northern Lights">
+                    </div>
+                    <div class="w3-column">
+                        <img class="w3-demo w3-cursor" src="assets/images/img_nature.jpg" style="width:100%"
+                             onclick="currentSlide(5)"
+                             alt="Nature and sunrise">
+                    </div>
+                    <div class="w3-column">
+                        <img class="w3-demo w3-cursor" src="assets/images/img_snow.jpg" style="width:100%"
+                             onclick="currentSlide(6)"
+                             alt="Snowy Mountains">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <a href="project.html" class="button special">More</a>
+        </footer>
     </div>
 </section>
 
@@ -72,28 +133,28 @@
     <div class="inner">
         <header>
             <a href="team.html">
-                <h2>Meet the team</h2>
+                <h2 class="button">Meet the team</h2>
             </a>
             <p>The brains behind the structural drone</p>
         </header>
         <div class="flex flex-4">
             <div class="box person">
                 <div class="image round">
-                    <img src="images/daniel.jpg" alt="Daniel Copley"/>
+                    <img src="assets/images/daniel.jpg" alt="Daniel Copley"/>
                 </div>
                 <h3>Daniel Copley</h3>
                 <p>Electrical Engineer</p>
             </div>
             <div class="box person">
                 <div class="image round">
-                    <img src="images/noah.jpg" alt="Noah Levie"/>
+                    <img src="assets/images/noah.jpg" alt="Noah Levie"/>
                 </div>
                 <h3>Noah Levie</h3>
                 <p>Electrical Engineer</p>
             </div>
             <div class="box person">
                 <div class="image round">
-                    <img src="images/almershed.jpg" alt="Mohammed Almershed"/>
+                    <img src="assets/images/almershed.jpg" alt="Mohammed Almershed"/>
                 </div>
                 <h3>Mohammed Almershed</h3>
                 <p>Electrical Engineer</p>
@@ -109,11 +170,16 @@
             <div class="copyright" style="padding-bottom: 20px">
                 Capstone Team 2
             </div>
+            <ul class="icons">
+                <li><a href="https://github.com/djcopley/" class="icon fa-github"><span class="label">Github</span></a>
+                </li>
+            </ul>
         </div>
     </div>
 </footer>
 
 <!-- Scripts -->
+<script src="assets/js/slideshow.js"></script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/skel.min.js"></script>
 <script src="assets/js/util.js"></script>
