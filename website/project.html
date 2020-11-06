@@ -26,7 +26,7 @@
 <section id="one" class="wrapper">
     <div class="inner">
         <header class="align-center">
-            <h2>Structural Inspection Drone</h2>
+            <h2>The Project</h2>
             <p>An autonomous approach to building inspection.</p>
         </header>
 
@@ -38,7 +38,9 @@
         </p>
         <p style="text-indent: 40px">
             On the contrary, the use of an automated drone for such a task would be faster, cheaper, safer, and overall
-            more convenient for everyone involved. The
+            more convenient for everyone involved. The drone will be able to fly itself around a designated building and
+            accurately identify any flaws that are externally visible. This will include features such as cracks in
+            walls, clogged gutters, broken windows, and the like.
         </p>
 
         <div class="image fit">
@@ -48,60 +50,81 @@
             </footer>
         </div>
 
-        <h3>Lists</h3>
+        <h3>Project Development</h3>
         <div class="flex">
             <div>
-                <h4>Unordered</h4>
-                <ul>
-                    <li>Dolor pulvinar etiam magna etiam.</li>
-                    <li>Sagittis adipiscing lorem eleifend.</li>
-                    <li>Felis enim feugiat dolore viverra.</li>
-                </ul>
+                <h4>User Interface</h4>
+                <ol>
+                    <li>As one of the core requirements of the project, the drone must be operable using a user
+                        interface of some kind
+                        <ul>
+                            <li>This will allow the operator to navigate the drone, configure inspection or navigation
+                                settings, or access data from the drone’s flight.</li>
+                            <li>This should be written in a more familiar programming language such as Python or
+                                MATLAB</li>
+                        </ul>
+                    </li>
+                    <li>The drone should be able to communicate in the same capacity as what has been stated above via
+                        the use of an app on an Android phone.
+                        <ul>
+                            <li>This should allow for interoperability as many individuals have access to or are
+                                familiar with Android phones</li>
+                        </ul>
+                    </li>
+                    <li>The drone furthermore may be operable using a web server, allowing users to configure the drone
+                        or access data without a physical connection to the drone
+                    </li>
+                </ol>
             </div>
             <div>
-                <h4>Ordered</h4>
+                <h4>Image Processing</h4>
                 <ol>
-                    <li>Dolor pulvinar etiam magna etiam.</li>
-                    <li>Etiam vel felis at lorem sed viverra.</li>
-                    <li>Felis enim feugiat dolore viverra.</li>
-                    <li>Dolor pulvinar etiam magna etiam.</li>
-                    <li>Etiam vel felis at lorem sed viverra.</li>
-                    <li>Felis enim feugiat dolore viverra.</li>
+                    <p>The drone uses image processing in order to isolate and identify relevant information for the
+                        operator, which will take place in three steps
+                    </p>
+                    <li>The first operation that the device must be able to perform is to identify what portions of the
+                        video data taken may be relevant to the inspection of the structure
+                        <ul>
+                            <li>This should greatly reduce the amount of video data that needs to be processed and
+                                analyzed</li>
+                        </ul>
+                    </li>
+                    <li>Secondly, the device must have a system of video stabilization and a means of positionally
+                        identifying Regions of Interest (ROIs) to further inspect and record
+                        <ul>
+                            <li>This will require a degree of machine learning as it will be up to the drone’s
+                                discretion to choose what areas are worthy of being investigated more</li>
+                        </ul>
+                    </li>
+                    <li>The system must be able to extract high-quality images from the processed video feed for direct
+                        analysis by the operator
+                        <ul>
+                            <li>This will also require machine learning processes, as the computer must identify the
+                                most helpful or relevant pieces of information to provide to the operator, without
+                                missing any</li>
+                        </ul>
+                    </li>
                 </ol>
             </div>
 
             <div>
-                <h4>Alternate</h4>
-                <ul class="alt">
-                    <li>Dolor pulvinar etiam magna etiam.</li>
-                    <li>Sagittis adipiscing lorem eleifend.</li>
-                    <li>Felis enim feugiat dolore viverra.</li>
-                </ul>
-            </div>
-
-            <div>
-                <header class="align-left">
-                    <h2>Project Development</h2>
-                </header>
+                <h4>Drone Navigation and Path Planning</h4>
                 <ol>
-                    <li>User Interface</li>
-                    <ol>
-                        <li>gui1</li>
-                        <li>gui2</li>
-                        <li>gui3</li>
-                    </ol>
-                    <li>Image Processing</li>
-                    <ol>
-                        <li>chum1</li>
-                        <li>chum2</li>
-                        <li>chum3</li>
-                    </ol>
-                    <li>Drone Navigation and Path Planning</li>
-                    <ol>
-                        <li>cum1</li>
-                        <li>cum2</li>
-                        <li>cum3</li>
-                    </ol>
+                    <p>The drone must be able to fly and navigate around the building which it is inspecting, which
+                        will be achieved in three steps</p>
+                    <li>The drone must be operable using a remote controller, either via a radio controller or
+                        a WIFI-connected computer</li>
+                    <li>The drone must be capable of semi-autonomous flight, allowing the user to designate
+                        the drone’s flight path and ROIs, which would then be inspected by the drone without direct
+                        control</li>
+                    <li>The drone should be capable of fully autonomous, self-planning flight
+                        <ul>
+                            <li>With this mode, the drone will be given a set of parameters, and it will then generate
+                                its own flight path and ROIs through observation</li>
+                        </ul>
+                    </li>
+                    <li>The drone should also have its own proximity obstacle detection and safe takeoff/landing
+                        protocols</li>
                 </ol>
             </div>
 
