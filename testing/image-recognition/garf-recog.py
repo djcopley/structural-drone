@@ -26,7 +26,7 @@ training_generator = training_datagen.flow_from_directory(
     garf_training_path,
     target_size=(200, 200),
     class_mode="categorical",
-    batch_size=10
+    batch_size=5
 )
 
 testing_generator = testing_datagen.flow_from_directory(
@@ -55,26 +55,30 @@ model = tf.keras.models.Sequential(
         tf.keras.layers.Flatten(),
         tf.keras.layers.Dropout(0.5),
         # 512 neuron hidden layer
-        tf.keras.layers.Dense(512, activation='relu'),
-        tf.keras.layers.Dense(1)
+        tf.keras.layers.Dense(1024, activation='relu'),
+        tf.keras.layers.Dense(2, activation='softmax')
     ]
 )
 
 model.summary()
-model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 
-history = model.fit(training_generator, epochs=25, steps_per_epoch=5, validation_data=testing_generator, verbose=1,
-                    validation_steps=5)
+# history = model.fit(training_generator, epochs=100, steps_per_epoch=5, validation_data=testing_generator, verbose=1,
+#                     validation_steps=5)
+#
+# model.save("garf.h5")
+#
+# acc = history.history['accuracy']
+# val_acc = history.history['val_accuracy']
+# loss = history.history['loss']
+# val_loss = history.history['val_loss']
 
-model.save("garf.h5")
+model.load_weights("garf.h5")
+print(training_generator.class_indices)
 
-acc = history.history['accuracy']
-val_acc = history.history['val_accuracy']
-loss = history.history['loss']
-val_loss = history.history['val_loss']
-
-predict_img = image.load_img("../../datasets/experimental/testing/garfield/images (21).jpeg", target_size=(200, 200))
+predict_img = image.load_img("../../datasets/experimental/testing/not garfield/images (21).jpeg",
+                             target_size=(200, 200))
 x = image.img_to_array(predict_img) / 255
 x = np.expand_dims(x, axis=0)
 images = np.vstack([x])
-print(model.predict(images, batch_size=10))
+print(model.predict(images, batch_size=1))
