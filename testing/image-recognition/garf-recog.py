@@ -63,15 +63,15 @@ model = tf.keras.models.Sequential(
 model.summary()
 model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 
-# history = model.fit(training_generator, epochs=100, steps_per_epoch=5, validation_data=testing_generator, verbose=1,
-#                     validation_steps=5)
-#
-# model.save("garf.h5")
-#
-# acc = history.history['accuracy']
-# val_acc = history.history['val_accuracy']
-# loss = history.history['loss']
-# val_loss = history.history['val_loss']
+history = model.fit(training_generator, epochs=100, steps_per_epoch=5, validation_data=testing_generator, verbose=1,
+                    validation_steps=5)
+
+model.save("garf.h5")
+
+acc = history.history['accuracy']
+val_acc = history.history['val_accuracy']
+loss = history.history['loss']
+val_loss = history.history['val_loss']
 
 model.load_weights("garf.h5")
 print(training_generator.class_indices)

@@ -11,7 +11,8 @@ setup(
         "scipy",
         "matplotlib",
         "opencv-python",
-        "tensorflow"
+        "tensorflow",
+        "mavsdk"
     ],
     setup_requires=[
         "setuptools_scm"
