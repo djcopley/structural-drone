@@ -7,3 +7,7 @@
 Autonomous structural drone project for capstone. Refer to the 
 [project structure](https://github.com/djcopley/structural-drone/blob/master/docs/project-layout.md) document for 
 help regarding the directory structure.
+
+## Next Steps
+- Gather Images
+- Train YOLO net
