@@ -11,3 +11,5 @@ help regarding the directory structure.
 ## Next Steps
 - Gather Images
 - Train YOLO net
+- Work on mavlink control in python
+- Setup simulation environment (GAZEBO)
