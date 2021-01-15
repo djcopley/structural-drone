@@ -13,3 +13,8 @@ help regarding the directory structure.
 - Train YOLO net
 - Work on mavlink control in python
 - Setup simulation environment (GAZEBO)
+
+## Replacement Parts
+- New frame
+- New props
+- New gimbal
