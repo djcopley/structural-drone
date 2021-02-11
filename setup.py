@@ -12,7 +12,9 @@ setup(
         "matplotlib",
         "opencv-python",
         "tensorflow",
-        "mavsdk"
+        "mavsdk",
+        "pycairo",
+        "PyGObject"
     ],
     setup_requires=[
         "setuptools_scm"
