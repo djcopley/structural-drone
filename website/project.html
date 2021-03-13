@@ -68,13 +68,6 @@
                 href="https://www.cefns.nau.edu/~ar2843/">here</a>.
         </p>
 
-        <div class="image fit">
-            <img src="assets/images/sys-arch.png" alt="System Architecture"/>
-            <footer>
-                Figure 1: System Architecture
-            </footer>
-        </div>
-
         <h3>Project Development</h3>
         <div class="flex">
             <div>
@@ -183,6 +176,102 @@
                 </ol>
             </div>
         </div>
+
+        <h3>System Architecture</h3>
+        <div class="image fit">
+            <img src="assets/images/sys-arch-hardware.png" alt="System Architecture">
+            <footer>
+                Figure 1: System Hardware Architecture
+            </footer>
+        </div>
+        <p style="text-indent: 40px">
+            Figure 1 shows the hardware portion of our design. The hardware is primarily separated into two fields:
+            the drone apparatus and the ground control station. The drone is a quadcopter UAV, which is outfitted with a
+            number of sensors and transmitters/receivers. Each of the four motors is controlled by an electronic speed
+            controller. All of the power for the drone and auxiliary equipment is supplied by a lithium-polymer battery,
+            and it is regulated and distributed by a power distribution board. The flight controller mounted on the
+            drone receives positional data from its GPS antenna, accelerometer, gyroscope, and magnetometer, and it
+            transmits this data to the ground control station via its telemetry radio. The drone carries a radio control
+            receiver to be manually controlled by a remote controller. A gimbal system is mounted on the drone, carrying
+            a GoPro Hero 4 camera, which streams analog video signals via radio back to a receiver connected to the
+            ground station. The ground station consists of a laptop running the QGroundControl flight control software,
+            connected to a telemetry radio for sending mission commands as well as a radio receiver for video data. The
+            machine learning object recognition systems are implemented within the ground control software stack on the
+            ground control station.
+        </p>
+        <div class="image fit">
+            <img src="assets/images/sys-arch-software.png" alt="System Architecture">
+            <footer>
+                Figure 1: System Software Architecture
+            </footer>
+        </div>
+        <p style="text-indent: 40px">
+            Figure 2 shows the software potion of our design. The two primary components of our software are the YOLOv4
+            object recognition system and the severity classification models, which are implemented using TensorFlow and
+            OpenCV in Python. This data flow will occur within the ground control station laptop, which receives the
+            video data wirelessly from the drone. This video data is sent to our YOLOv4 model, which annotates the video
+            feed and displays it to the user in QGroundControl. At the same time, it outputs snipped images of
+            structural features to the damage classification network. This classification process will determine what
+            inputs are prompted from the user, i.e. whether they want to continue the mission or pause to keep
+            inspecting the feature. These commands will be transmitted to the drone via MAVLink and will be displayed to
+            the user in QGroundControl.
+        </p>
+
+        <h3>Technologies Used</h3>
+        <h4>Software</h4>
+        <ul>
+            <li>
+                You only look once (YOLO) - computer vision framework<br>
+                <img src="assets/images/yolo.png" alt="Yolo" style="width:200px;height:200px">
+            </li>
+            <li>
+                Darknet - computer vision implementation<br>
+                <img src="assets/images/darknet.png" alt="Darknet" style="width:200px;height:200px">
+            </li>
+            <li>
+                QGroundControl - UAS ground control software<br>
+                <img src="assets/images/qgc.png" alt="QGC" style="width:200px;height:200px">
+            </li>
+        </ul>
+        <h4>Hardware</h4>
+        <ul>
+            <li>
+                Holybro S500 drone kit
+                <ul>
+                    <li>
+                        S500 Frame
+                    </li>
+                    <li>
+                        Pixhawk 4 Flight Controller
+                    </li>
+                    <li>
+                        GPS Antenna and Telemetry Radio
+                    </li>
+                    <li>
+                        x4 2216 880 kV motors
+                    </li>
+                    <li>
+                        x4 1045 Propellers
+                    </li>
+                    <li>
+                        x4 ESC and Power Management Board
+                    </li>
+                </ul>
+                <img src="assets/images/dronekit.png" alt="Drone" style="width:200px;height:200px">
+            </li>
+            <li>
+                Storm32 Gimbal and GoPro Hero 4<br>
+                <img src="assets/images/gimbal.png" alt="Gimbal" style="width:200px;height:200px">
+            </li>
+            <li>
+                Flysky FR6 Radio Transmitter/Receiver<br>
+                <img src="assets/images/controller.png" alt="Controller" style="width:200px;height:200px">
+            </li>
+            <li>
+                5.8GHz Video Transmitter/Receiver<br>
+                <img src="assets/images/videotransmitter.png" alt="Video Tx/Rx" style="width:200px;height:200px">
+            </li>
+        </ul>
     </div>
 </section>
 
