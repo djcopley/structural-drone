@@ -6,7 +6,13 @@ setup(
     license="GPLv3",
     packages=find_packages(),
     install_requires=[
-        # GStreamer
+        "numpy",
+        "scipy",
+        "matplotlib",
+        "opencv-python",
+        "tensorflow",
+        "mavsdk",
+        "PyGObject"
     ],
     setup_requires=[
         "setuptools_scm"
