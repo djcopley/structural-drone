@@ -12,7 +12,8 @@ setup(
         "opencv-python",
         "tensorflow",
         "mavsdk",
-        "PyGObject"
+        "PyGObject",
+        "PyQt5"
     ],
     setup_requires=[
         "setuptools_scm"
