@@ -1,5 +1,9 @@
-from skeyes.mvc.view import View
+from skeyes.mvc.view.view import View
 
 
 class CliView(View):
-    pass
+    def __init__(self, controller):
+        super().__init__(controller)
+
+    def run(self):
+        self.start_controller()

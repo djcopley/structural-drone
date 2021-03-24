@@ -1,5 +1,10 @@
-from skeyes.mvc.view import View
+from skeyes.mvc.view.view import View
 
 
 class GuiView(View):
-    pass
+
+    def __init__(self, controller):
+        super().__init__(controller)
+
+    def start(self):
+        self.start_controller()

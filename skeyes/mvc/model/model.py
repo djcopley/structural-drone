@@ -1,6 +1,11 @@
+from skeyes.mvc.model.action import Action
+
+
 class Model:
     def __init__(self):
-        pass
+        self.running = True
+        self.action = Action
 
-    def run(self):
-        pass
+    def start(self):
+        while self.running:
+            pass

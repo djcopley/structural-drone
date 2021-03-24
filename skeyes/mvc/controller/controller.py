@@ -2,5 +2,8 @@ class Controller:
     def __init__(self, model):
         self.model = model
 
-    def run_model(self):
-        self.model.run()
+    def start_model(self):
+        self.model.start()
+
+    def stop_model(self):
+        self.model.running = False

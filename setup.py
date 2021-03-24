@@ -24,7 +24,7 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "skeyes = skeyes.main:main"
+            "skeyes = skeyes.main:cli"
         ],
         "gui_scipts": [
             "gskeyes = skeyes.main:gui"
