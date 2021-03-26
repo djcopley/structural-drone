@@ -20,7 +20,7 @@ class View:
 
         :return:
         """
-        self.controller_thread = threading.Thread(self.controller.start_model)
+        self.controller_thread = threading.Thread(target=self.controller.start)
         self.controller_thread.start()
 
     def stop_controller(self):
@@ -29,5 +29,5 @@ class View:
 
         :return:
         """
-        self.controller.stop_model()
+        self.controller.stop()
         self.controller_thread.join()

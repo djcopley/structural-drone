@@ -1,4 +1,5 @@
 import argparse
+import logging
 
 from skeyes.mvc.model.model import Model
 from skeyes.mvc.view.cli_view import CliView
@@ -8,6 +9,7 @@ from skeyes.mvc.controller.controller import Controller
 
 # from . import __version__
 __version__ = "1.0"
+logger = logging.getLogger(__name__)
 
 
 def gui():
@@ -21,8 +23,13 @@ def cli():
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--version",
+                        "-v",
                         action="version",
                         version=__version__)
+    parser.add_argument("--debug",
+                        "-d",
+                        action="store_true",
+                        default=False)
     return parser.parse_args()
 
 
@@ -35,4 +42,4 @@ def main(view_backend):
 
 
 if __name__ == '__main__':
-    main(CliView)
+    main(GuiView)
