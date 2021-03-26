@@ -5,8 +5,9 @@ from skeyes.mvc.model import *
 
 
 class Detection:
-    def __init__(self, name, confidence, box):
+    def __init__(self, name, class_id, confidence, box):
         self.name = name
+        self.class_id = class_id
         self.confidence = confidence
 
         # np.array
@@ -24,7 +25,7 @@ class Detection:
 
 
 class YoloV4:
-    def __init__(self, cfg: str, weights: str, names: list, input_size: int = 416, conf_threshold: float = 0.1,
+    def __init__(self, cfg: str, weights: str, names: list, input_size: int = 416, conf_threshold: float = 0.5,
                  nms_threshold: float = 0.4):
         self.dnn = cv2.dnn_DetectionModel(cfg, weights)
 
@@ -49,15 +50,27 @@ class YoloV4:
         classes, confidences, boxes = self.dnn.detect(image, confThreshold=self.conf_threshold,
                                                       nmsThreshold=self.nms_threshold)
         detections = []
-
-        for classId, confidence, box in zip(classes.flatten(), confidences.flatten(), boxes):
-            detections.append(Detection(self.names[classId], confidence, box))
+        try:
+            for class_id, confidence, box in zip(classes.flatten(), confidences.flatten(), boxes):
+                detections.append(Detection(self.names[class_id], class_id, confidence, box))
+        except AttributeError:
+            pass
 
         return detections
 
 
 if __name__ == '__main__':
-    frame = cv2.imread("yolo/test/img2.png")
+    from skeyes.mvc.model.utils import image_annotate
 
     yolo = YoloV4(YOLO_MODEL_CFG, YOLO_MODEL_WEIGHTS, ["Window", "Gutter"])
+
+    frame = cv2.imread("yolo/test/img4.png")
+
+    for detection in yolo.run_inference(frame):
+        min_x, min_y, max_x, max_y = detection.box
+        frame = image_annotate(frame, min_x, min_y, max_x, max_y,
+                               text="{}: {:.2%}".format(detection.name, detection.confidence))
+
+    cv2.imshow('frame', frame)
     print(yolo.run_inference(frame))
+    cv2.waitKey(0)

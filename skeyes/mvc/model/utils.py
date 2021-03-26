@@ -33,12 +33,12 @@ if __name__ == '__main__':
     cap = cv2.VideoCapture(0)
     ret, frame = cap.read()
 
-    image = image_annotate(frame, 0, 0, 200, 300, text="WINDOW")
-    cv2.imshow("", image)
+    img = image_annotate(frame, 0, 0, 200, 300, text="WINDOW")
+    cv2.imshow("", img)
     cv2.waitKey(0)
 
-    image = image_crop(frame, 0, 0, 200, 300)
-    cv2.imshow("", image)
+    img = image_crop(frame, 0, 0, 200, 300)
+    cv2.imshow("", img)
     cv2.waitKey(0)
 
     cv2.imshow("", frame)  # FRAME SHOULD BE ORIGINAL!
