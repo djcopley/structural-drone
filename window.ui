@@ -128,6 +128,9 @@
           <property name="text">
            <string>localhost</string>
           </property>
+          <property name="maxLength">
+           <number>16</number>
+          </property>
          </widget>
         </item>
         <item row="3" column="0">
@@ -141,6 +144,9 @@
          <widget class="QLineEdit" name="gst_port">
           <property name="text">
            <string>5600</string>
+          </property>
+          <property name="maxLength">
+           <number>5</number>
           </property>
          </widget>
         </item>
