@@ -11,10 +11,8 @@ setup(
         "numpy",
         "scipy",
         "matplotlib",
-        "opencv-python",
         "tensorflow",
         "mavsdk",
-        "PyGObject",
         "PyQt5"
     ],
     setup_requires=[
