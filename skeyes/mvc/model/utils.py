@@ -26,7 +26,8 @@ def image_annotate(image, min_x, min_y, max_x, max_y, text=None, color=(0, 255, 
 
 def extract_class_names(filename: str) -> list:
     with open(filename, 'rt') as f:
-        return f.read().rstrip('\n').split('\n')
+        classes = f.read().rstrip('\n').split('\n')
+    return classes
 
 
 if __name__ == '__main__':

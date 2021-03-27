@@ -1,4 +1,5 @@
 import cv2
+import logging
 
 from skeyes.mvc.model import *
 from skeyes.mvc.model.utils import *
@@ -20,9 +21,18 @@ class Model:
         # Gstreamer port
         self.gst_port = gst_port
 
+        self.video = Video(self.video_device_handle)
+
     def start(self):
         while self.running:
             # Get video frame
+            frame = self.video.get_frame()
+            # Run detection
+            # Crop
+            # Run Classification
+            # Annotate
+            # Action Generation
+            # Stream to user
             pass
 
 

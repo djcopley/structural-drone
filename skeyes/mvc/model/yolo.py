@@ -1,7 +1,10 @@
 import cv2
 import numpy as np
+import logging
 
 from skeyes.mvc.model import *
+
+logger = logging.getLogger(__name__)
 
 
 class Detection:

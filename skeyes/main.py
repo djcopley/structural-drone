@@ -33,6 +33,10 @@ def parse_args():
     return parser.parse_args()
 
 
+def setup_logging():
+    pass
+
+
 def main(view_backend):
     args = parse_args()
     model = Model()
