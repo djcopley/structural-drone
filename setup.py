@@ -13,6 +13,7 @@ setup(
         "matplotlib",
         "tensorflow",
         "mavsdk",
+        "goprocam",
         "PyQt5"
     ],
     setup_requires=[
