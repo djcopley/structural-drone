@@ -40,7 +40,7 @@ if __name__ == '__main__':
     # cap = cv2.VideoCapture(os.path.join(YOLO_DIR, "video1.mov"))
     # cap = cv2.VideoCapture(
     #     os.path.join(YOLO_DIR, "/home/djcopley/Documents/School/Capstone/drone-footage/GPS_TEST_FLIGHT.mp4"))
-    cap = Video(0)
+    cap = Video()
     yolo = YoloV4(YOLO_MODEL_CFG, YOLO_MODEL_WEIGHTS, extract_class_names(YOLO_CLASS_NAMES))
 
     while True:

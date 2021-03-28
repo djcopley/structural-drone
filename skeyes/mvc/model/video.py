@@ -1,31 +1,29 @@
 import cv2
 import logging
 
+from goprocam import GoProCamera
+from goprocam import constants
+
 logger = logging.getLogger(__name__)
 
 
 class Video:
-    def __init__(self, capture_device: int, host="127.0.0.1", port="5600"):
-        # Default camera device should be device 0, however, if user has multiple webcams, it may be something
-        # different.
-        self._capture_devnum = None
-        self._capture_device = None
+    def __init__(self, host="127.0.0.1", port="5600"):
+        # Configure GoPro camera
+        self._go_pro = GoProCamera.GoPro()
+
+        # If we decide to go the no ffmpeg route
+        # self._go_pro.livestream("start")
+        # self._capture_uri = "udp://10.5.5.9:8554"
+
+        self._capture_uri = "udp://127.0.0.1:10000"
+        self._capture_device = cv2.VideoCapture(self._capture_uri)
+
+        # Configure GStreamer
         self._stream_device = None
+        self.configure_stream(host, port)
 
-        self.set_capture_device(capture_device)
-        self.set_stream_device(host, port)
-
-    def set_capture_device(self, capture_device):
-        try:
-            # Release the capture device handle first
-            self._capture_device.release()
-        except AttributeError:
-            pass
-        # Update to new device
-        self._capture_devnum = capture_device
-        self._capture_device = cv2.VideoCapture(capture_device)
-
-    def set_stream_device(self, host, port):
+    def configure_stream(self, host, port):
         try:
             # Release stream device handle first
             self._stream_device.release()
@@ -34,7 +32,7 @@ class Video:
 
         codec = 0
         fps = 20
-        img_dimension = (640 * 2, 480 * 2)
+        img_dimension = (432, 240)
         is_color = True
 
         self._stream_device = cv2.VideoWriter(
@@ -49,7 +47,7 @@ class Video:
         ret, frame = self._capture_device.read()
         if not ret:
             # Logger, print couldn't get frame for current device
-            logger.error("Couldn't access capture device number: {}".format(self._capture_devnum))
+            logger.error("Couldn't access capture device number: {}".format(self._capture_uri))
         # NOTE: Potential bug. If downstream streamer expects frame, this method might return None if invalid
         # video capture device
         return frame  # BUG
@@ -63,7 +61,7 @@ class Video:
 
 
 if __name__ == '__main__':
-    video = Video(0)
+    video = Video()
 
     while True:
         frame = video.get_frame()

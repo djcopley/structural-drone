@@ -8,12 +8,19 @@ def image_crop(image, min_x, min_y, max_x, max_y):
     return image[min_y: max_y, min_x: max_x]
 
 
-def image_annotate(image, min_x, min_y, max_x, max_y, text=None, color=(0, 255, 0), thickness=2):
+def image_annotate(image, min_x, min_y, max_x, max_y, text=None, damaged=False, thickness=2):
     """
     Function draws a box on an image and adds text. Text is optional.
     """
+    # Color selection
+    green = (0, 255, 0)
+    red = (0, 0, 255)
+    color = red if damaged else green
+
     # COPY THE IMAGE!!! OpenCV modifies original!
     image = image.copy()
+
+    # TODO: Change the text placement to inside the box with highlight
     cv2.rectangle(image, (min_x, min_y), (max_x, max_y), color, thickness)
     if text:
         text_y = min_y - 10

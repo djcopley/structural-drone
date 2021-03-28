@@ -116,72 +116,7 @@
         <string>Settings</string>
        </attribute>
        <layout class="QFormLayout" name="formLayout_2">
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_7">
-          <property name="text">
-           <string>Video Capture Device:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QComboBox" name="comboBox_3">
-          <item>
-           <property name="text">
-            <string>0</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>1</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>2</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>3</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="label_4">
-          <property name="text">
-           <string>QGroundControl IP:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="1">
-         <widget class="QLineEdit" name="gst_ip">
-          <property name="text">
-           <string>127.0.0.1</string>
-          </property>
-          <property name="maxLength">
-           <number>16</number>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="0">
-         <widget class="QLabel" name="label_5">
-          <property name="text">
-           <string>Streaming Port:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="1">
-         <widget class="QLineEdit" name="gst_port">
-          <property name="text">
-           <string>5600</string>
-          </property>
-          <property name="maxLength">
-           <number>5</number>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
+        <item row="1" column="0">
          <widget class="QCheckBox" name="checkBox">
           <property name="text">
            <string>Enable Video Stream</string>
@@ -191,21 +126,55 @@
           </property>
          </widget>
         </item>
-        <item row="6" column="0">
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>QGroundControl IP:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="gst_ip">
+          <property name="text">
+           <string>127.0.0.1</string>
+          </property>
+          <property name="maxLength">
+           <number>16</number>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Streaming Port:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLineEdit" name="gst_port">
+          <property name="text">
+           <string>5600</string>
+          </property>
+          <property name="maxLength">
+           <number>5</number>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
          <widget class="QCheckBox" name="checkBox_2">
           <property name="text">
            <string>Enable File Logging</string>
           </property>
          </widget>
         </item>
-        <item row="7" column="0">
+        <item row="6" column="0">
          <widget class="QLabel" name="label_8">
           <property name="text">
            <string>File Path:</string>
           </property>
          </widget>
         </item>
-        <item row="7" column="1">
+        <item row="6" column="1">
          <widget class="QLineEdit" name="lineEdit"/>
         </item>
        </layout>
