@@ -39,7 +39,7 @@ def setup_logging():
 
 def main(view_backend):
     args = parse_args()
-    model = Model()
+    model = Model(None, None, None)
     controller = Controller(model)
     view = view_backend(controller)
     view.start()

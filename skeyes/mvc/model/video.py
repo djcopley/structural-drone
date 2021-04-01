@@ -2,7 +2,7 @@ import cv2
 import logging
 
 from goprocam import GoProCamera
-from goprocam import constants
+# from goprocam import constants
 
 logger = logging.getLogger(__name__)
 

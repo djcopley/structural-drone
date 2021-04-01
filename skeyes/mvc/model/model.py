@@ -1,10 +1,13 @@
 import cv2
 import logging
+import asyncio
 
 from skeyes.mvc.model import *
 from skeyes.mvc.model.utils import *
 from skeyes.mvc.model.yolo import YoloV4, Detection
 from skeyes.mvc.model.video import Video
+from skeyes.mvc.model.action import Action
+from skeyes.mvc.model.classifier import Classifier
 
 
 class Model:
@@ -21,12 +24,12 @@ class Model:
         # Gstreamer port
         self.gst_port = gst_port
 
-        self.video = Video(self.video_device_handle)
+        # self.video = Video(self.video_device_handle)
 
     def start(self):
         while self.running:
             # Get video frame
-            frame = self.video.get_frame()
+            # frame = self.video.get_frame()
             # Run detection
             # Crop
             # Run Classification

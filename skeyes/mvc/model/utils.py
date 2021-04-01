@@ -5,6 +5,8 @@ def image_crop(image, min_x, min_y, max_x, max_y):
     """
     Function crops a given image. Will break if min_x > max_x or min_y > max_y.
     """
+    assert min_x < max_x, "min_x must be smaller than max_x."
+    assert min_y < max_y, "min_y must be smaller than max_y."
     return image[min_y: max_y, min_x: max_x]
 
 
