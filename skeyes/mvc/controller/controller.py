@@ -11,6 +11,15 @@ class Controller:
     def stop(self):
         self.model.running = False
 
+    def set_qgc_ip(self, ip):
+        pass
+
+    def set_qgc_port(self, port):
+        pass
+
+    def set_logging_file_path(self, fp):
+        pass
+
     def get_actions(self):
         return
 

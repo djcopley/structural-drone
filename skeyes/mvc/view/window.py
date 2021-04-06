@@ -1,3 +1,4 @@
+import os
 from PyQt5 import QtCore, QtWidgets
 
 
@@ -77,6 +78,9 @@ class Window:
         self.gst_ip = QtWidgets.QLineEdit(self.settings)
         self.gst_ip.setMaxLength(16)
         self.gst_ip.setObjectName("gst_ip")
+
+        self.gst_ip.setText("127.0.0.1")
+
         self.formLayout_2.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.gst_ip)
         self.streaming_port_label = QtWidgets.QLabel(self.settings)
         self.streaming_port_label.setObjectName("streaming_port_label")
@@ -84,15 +88,25 @@ class Window:
         self.gst_port = QtWidgets.QLineEdit(self.settings)
         self.gst_port.setMaxLength(5)
         self.gst_port.setObjectName("gst_port")
+
+        self.gst_port.setText("5600")
+
         self.formLayout_2.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.gst_port)
         self.file_logging_enable_checkbox = QtWidgets.QCheckBox(self.settings)
         self.file_logging_enable_checkbox.setObjectName("file_logging_enable_checkbox")
         self.formLayout_2.setWidget(5, QtWidgets.QFormLayout.LabelRole, self.file_logging_enable_checkbox)
         self.file_path_label = QtWidgets.QLabel(self.settings)
         self.file_path_label.setObjectName("file_path_label")
+
+        self.file_path_label.setDisabled(True)
+
         self.formLayout_2.setWidget(6, QtWidgets.QFormLayout.LabelRole, self.file_path_label)
         self.file_path_input = QtWidgets.QLineEdit(self.settings)
         self.file_path_input.setObjectName("file_path_input")
+
+        self.file_path_input.setText("/var/log/skeyes/")
+        self.file_path_input.setDisabled(True)
+
         self.formLayout_2.setWidget(6, QtWidgets.QFormLayout.FieldRole, self.file_path_input)
         self.tab_widget.addTab(self.settings, "")
         self.gridLayout.addWidget(self.tab_widget, 0, 0, 1, 1)
@@ -119,9 +133,7 @@ class Window:
         self.tab_widget.setTabText(self.tab_widget.indexOf(self.actions), _translate("MainWindow", "Actions"))
         self.stream_enable_checkbox.setText(_translate("MainWindow", "Enable Video Stream"))
         self.qgc_label.setText(_translate("MainWindow", "QGroundControl IP:"))
-        self.gst_ip.setText(_translate("MainWindow", "127.0.0.1"))
         self.streaming_port_label.setText(_translate("MainWindow", "Streaming Port:"))
-        self.gst_port.setText(_translate("MainWindow", "5600"))
         self.file_logging_enable_checkbox.setText(_translate("MainWindow", "Enable File Logging"))
         self.file_path_label.setText(_translate("MainWindow", "File Path:"))
         self.tab_widget.setTabText(self.tab_widget.indexOf(self.settings), _translate("MainWindow", "Settings"))
