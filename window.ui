@@ -19,7 +19,7 @@
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QTabWidget" name="tabWidget">
+     <widget class="QTabWidget" name="actions_tab">
       <property name="currentIndex">
        <number>0</number>
       </property>
@@ -44,28 +44,28 @@
            </property>
            <layout class="QFormLayout" name="formLayout">
             <item row="0" column="0">
-             <widget class="QLabel" name="label_3">
+             <widget class="QLabel" name="feature_label">
               <property name="text">
                <string>Feature</string>
               </property>
              </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QLabel" name="label_6">
+             <widget class="QLabel" name="action_label">
               <property name="text">
                <string>Action</string>
               </property>
              </widget>
             </item>
             <item row="1" column="0">
-             <widget class="QLabel" name="label">
+             <widget class="QLabel" name="windows_label">
               <property name="text">
                <string>Windows</string>
               </property>
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QComboBox" name="comboBox">
+             <widget class="QComboBox" name="windows_combo">
               <property name="editable">
                <bool>false</bool>
               </property>
@@ -85,14 +85,14 @@
              </widget>
             </item>
             <item row="2" column="0">
-             <widget class="QLabel" name="label_2">
+             <widget class="QLabel" name="gutters_label">
               <property name="text">
                <string>Gutters</string>
               </property>
              </widget>
             </item>
             <item row="2" column="1">
-             <widget class="QComboBox" name="comboBox_2">
+             <widget class="QComboBox" name="gutters_combo">
               <item>
                <property name="text">
                 <string>Pause</string>
@@ -117,7 +117,7 @@
        </attribute>
        <layout class="QFormLayout" name="formLayout_2">
         <item row="1" column="0">
-         <widget class="QCheckBox" name="checkBox">
+         <widget class="QCheckBox" name="stream_enable_checkbox">
           <property name="text">
            <string>Enable Video Stream</string>
           </property>
@@ -127,7 +127,7 @@
          </widget>
         </item>
         <item row="2" column="0">
-         <widget class="QLabel" name="label_4">
+         <widget class="QLabel" name="qgc_label">
           <property name="text">
            <string>QGroundControl IP:</string>
           </property>
@@ -144,7 +144,7 @@
          </widget>
         </item>
         <item row="4" column="0">
-         <widget class="QLabel" name="label_5">
+         <widget class="QLabel" name="streaming_port_label">
           <property name="text">
            <string>Streaming Port:</string>
           </property>
@@ -161,21 +161,21 @@
          </widget>
         </item>
         <item row="5" column="0">
-         <widget class="QCheckBox" name="checkBox_2">
+         <widget class="QCheckBox" name="file_logging_enable_checkbox">
           <property name="text">
            <string>Enable File Logging</string>
           </property>
          </widget>
         </item>
         <item row="6" column="0">
-         <widget class="QLabel" name="label_8">
+         <widget class="QLabel" name="file_path_label">
           <property name="text">
            <string>File Path:</string>
           </property>
          </widget>
         </item>
         <item row="6" column="1">
-         <widget class="QLineEdit" name="lineEdit"/>
+         <widget class="QLineEdit" name="file_path_input"/>
         </item>
        </layout>
       </widget>

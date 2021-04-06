@@ -43,17 +43,17 @@ if __name__ == '__main__':
     # cap = cv2.VideoCapture(os.path.join(YOLO_DIR, "video1.mov"))
     # cap = cv2.VideoCapture(
     #     os.path.join(YOLO_DIR, "/home/djcopley/Documents/School/Capstone/drone-footage/GPS_TEST_FLIGHT.mp4"))
-    cap = Video()
+    cap = cv2.VideoCapture(0)
     yolo = YoloV4(YOLO_MODEL_CFG, YOLO_MODEL_WEIGHTS, extract_class_names(YOLO_CLASS_NAMES))
 
     while True:
-        frame = cap.get_frame()
+        ret, frame = cap.read()
         for detection in yolo.run_inference(frame):
             min_x, min_y, max_x, max_y = detection.box
             frame = image_annotate(frame, min_x, min_y, max_x, max_y,
                                    text="{}: {:.2%}".format(detection.name, detection.confidence))
         cv2.imshow('frame', frame)
-        cap.stream_frame(frame)
+        # cap.stream_frame(frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break

@@ -43,7 +43,7 @@ if __name__ == '__main__':
     cap = cv2.VideoCapture(0)
     ret, frame = cap.read()
 
-    img = image_annotate(frame, 0, 0, 200, 300, text="WINDOW")
+    img = image_annotate(frame, 0, 0, 200, 300, text="WINDOW", damaged=True)
     cv2.imshow("", img)
     cv2.waitKey(0)
 
