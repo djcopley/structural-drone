@@ -1,13 +1,6 @@
-import cv2
-import logging
-import asyncio
-
-from skeyes.mvc.model import *
-from skeyes.mvc.model.utils import *
-from skeyes.mvc.model.yolo import YoloV4, Detection
-from skeyes.mvc.model.video import Video
-from skeyes.mvc.model.action import Action
-from skeyes.mvc.model.classifier import Classifier
+from skeyes.model import *
+from skeyes.model.utils import *
+from skeyes.model.yolo import YoloV4
 
 
 class Model:

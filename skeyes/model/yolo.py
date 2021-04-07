@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import logging
 
-from skeyes.mvc.model import *
+from skeyes.model import *
 
 logger = logging.getLogger(__name__)
 
@@ -63,7 +63,7 @@ class YoloV4:
 
 
 if __name__ == '__main__':
-    from skeyes.mvc.model.utils import image_annotate
+    from skeyes.model.utils import image_annotate
 
     yolo = YoloV4(YOLO_MODEL_CFG, YOLO_MODEL_WEIGHTS, ["Window", "Gutter"])
 

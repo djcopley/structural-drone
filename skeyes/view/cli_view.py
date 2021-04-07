@@ -1,4 +1,4 @@
-from skeyes.mvc.view.view import View
+from skeyes.view.view import View
 
 
 class CliView(View):

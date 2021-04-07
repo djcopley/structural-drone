@@ -1,10 +1,10 @@
 import argparse
 import logging
 
-from skeyes.mvc.model.model import Model
-from skeyes.mvc.view.cli_view import CliView
-from skeyes.mvc.view.gui_view import GuiView
-from skeyes.mvc.controller.controller import Controller
+from skeyes.model.model import Model
+from skeyes.view.cli_view import CliView
+from skeyes.view.gui_view import GuiView
+from skeyes.controller.controller import Controller
 
 
 # from . import __version__

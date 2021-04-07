@@ -1,5 +1,5 @@
-from skeyes.mvc.view.view import View
-from skeyes.mvc.view.window import Window
+from skeyes.view.view import View
+from skeyes.view.window import Window
 
 from PyQt5.QtWidgets import QApplication, QMessageBox
 

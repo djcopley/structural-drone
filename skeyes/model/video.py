@@ -4,7 +4,6 @@ import socket
 import time
 
 from goprocam import GoProCamera
-# from goprocam import constants
 
 logger = logging.getLogger(__name__)
 
@@ -34,7 +33,7 @@ class Video:
 
         codec = 0
         fps = 20
-        img_dimension = (432, 240)
+        img_dimension = (432, 240)  # Video dimensions from the gopro stream
         is_color = True
 
         self._stream_device = cv2.VideoWriter(
