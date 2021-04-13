@@ -53,3 +53,8 @@ Steal the stream from the Gazebo simulator and run processing.
 ## Dockerize?
 
 Would be awesome to dockerize and take advantage of hardware acceleration
+
+## Add object permanence
+
+In `action.py` devise some sort of object permanence scheme so that multiple actions are not being taken for the same 
+feature in two different frames.
