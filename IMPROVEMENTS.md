@@ -46,6 +46,10 @@ Documentation is super incomplete and out of date. Update it. Also add docstring
 
 Write unit tests for all modules
 
+## Simulator mode
+
+Steal the stream from the Gazebo simulator and run processing.
+
 ## Dockerize?
 
 Would be awesome to dockerize and take advantage of hardware acceleration
