@@ -1,8 +1,11 @@
 import cv2
+import logging
 import numpy as np
 import tensorflow as tf
 
 from skeyes.model import *
+
+logger = logging.getLogger(__name__)
 
 
 class Classifier:
