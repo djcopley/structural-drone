@@ -1,10 +1,4 @@
-import os
 from PyQt5 import QtCore, QtWidgets
-
-
-# TODO Input callbacks
-# TODO Input typechecking, if incorrect input highlight red with modal message?
-# TODO Show webcam output from certain port?
 
 
 class Window:

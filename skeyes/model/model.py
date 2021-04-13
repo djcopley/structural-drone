@@ -1,52 +1,68 @@
+import logging
+
 from skeyes.model import *
 from skeyes.model.utils import *
-from skeyes.model.yolo import YoloV4
+from skeyes.model.action import Action
+from skeyes.model.classifier import Classifier
+from skeyes.model.video import Video
+from skeyes.model.yolo import YoloV4, Detection
+
+logger = logging.getLogger(__name__)
 
 
 class Model:
-    def __init__(self, video_device_handle, gst_ip_address, gst_port):
+    def __init__(self):
         self.running = True
 
-        # TODO make getters and setters for the following parameters that way the controller can update objects easily
-        # Configuration options
-        # ----------------------
-        # Webcam opencv device handle - ie: 0, 1, 2, 3
-        self.video_device_handle = video_device_handle
-        # Gstreamer udp stream ip (this is the destination ip)
-        self.gst_ip_address = gst_ip_address
-        # Gstreamer port
-        self.gst_port = gst_port
-
-        # self.video = Video(self.video_device_handle)
+        self.action = Action()
+        # self.classifier = Classifier()
+        self.video = Video()
+        self.yolo = YoloV4(YOLO_MODEL_CFG, YOLO_MODEL_WEIGHTS, extract_class_names(YOLO_CLASS_NAMES))
+        # self.test = cv2.VideoCapture(0)
 
     def start(self):
         while self.running:
             # Get video frame
-            # frame = self.video.get_frame()
-            # Run detection
-            # Crop
-            # Run Classification
-            # Annotate
-            # Action Generation
-            # Stream to user
-            pass
+            frame = self.video.get_frame()
+            if frame is not None:
+                # Run detections
+                detections = self.yolo.run_inference(frame)
+                for detection in detections:
+                    # Get the detection bounds
+                    min_x, min_y, max_x, max_y = detection.box
+                    # Crop the image to the detection bounds
+                    cropped_img = image_crop(frame, min_x, min_y, max_x, max_y)
+                    # Classify defective or nominal
+                    defective = False  # self.classifier.predict(cropped_img, detection.name)  # True if damaged
+                    # Get the frame
+                    frame = image_annotate(frame, min_x, min_y, max_x, max_y,
+                                           f"{'Defective' if defective else 'Nominal'} {detection.name}", defective)
+                    # Generate action if defective
+                    # if defective:
+                    #     self.action.generate_action(detection.name)
+                # Stream video frame out to UDP port
+                self.video.stream_frame(frame)
+
+    def stop(self):
+        self.running = False
+        self.video.release()
+
+    def set_qgc_ip(self, ip):
+        self.video.set_host(ip)
+
+    def set_qgc_port(self, port):
+        self.video.set_port(port)
+
+    def set_logging_file_path(self, fp):
+        pass
+
+    def get_actions(self):
+        return
+
+    def set_action(self, img_class, action):
+        self.action.set_action(img_class, action)
 
 
 if __name__ == '__main__':
-    # cap = cv2.VideoCapture(os.path.join(YOLO_DIR, "video1.mov"))
-    # cap = cv2.VideoCapture(
-    #     os.path.join(YOLO_DIR, "/home/djcopley/Documents/School/Capstone/drone-footage/GPS_TEST_FLIGHT.mp4"))
-    cap = cv2.VideoCapture(0)
-    yolo = YoloV4(YOLO_MODEL_CFG, YOLO_MODEL_WEIGHTS, extract_class_names(YOLO_CLASS_NAMES))
-
-    while True:
-        ret, frame = cap.read()
-        for detection in yolo.run_inference(frame):
-            min_x, min_y, max_x, max_y = detection.box
-            frame = image_annotate(frame, min_x, min_y, max_x, max_y,
-                                   text="{}: {:.2%}".format(detection.name, detection.confidence))
-        cv2.imshow('frame', frame)
-        # cap.stream_frame(frame)
-
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
+    model = Model()
+    model.start()

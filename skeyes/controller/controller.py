@@ -9,19 +9,19 @@ class Controller:
         self.model.start()
 
     def stop(self):
-        self.model.running = False
+        self.model.stop()
 
     def set_qgc_ip(self, ip):
-        pass
+        self.model.set_qgc_ip(ip)
 
     def set_qgc_port(self, port):
-        pass
+        self.model.set_qgc_port(port)
 
     def set_logging_file_path(self, fp):
-        pass
+        self.set_logging_file_path(fp)
 
     def get_actions(self):
         return
 
     def set_action(self, img_class, action):
-        pass
+        self.model.set_action(img_class, action)

@@ -4,22 +4,6 @@ from skeyes.view.window import Window
 from PyQt5.QtWidgets import QApplication, QMessageBox
 
 
-def valid_ipv4(ip):
-    ip = ip.split(".")
-
-    if len(ip) != 4:
-        return False
-
-    try:
-        for group in ip:
-            if not int(group) <= 255:
-                raise ValueError
-        return True
-
-    except ValueError:
-        return False
-
-
 class GuiView(View):
     def __init__(self, controller):
         super().__init__(controller)
@@ -61,6 +45,21 @@ class GuiView(View):
         self.window.gst_port.setDisabled(not enabled)
 
     def set_qgc_ip(self):
+        def valid_ipv4(ip_addr):
+            ip_addr = ip_addr.split(".")
+
+            if len(ip_addr) != 4:
+                return False
+
+            try:
+                for group in ip_addr:
+                    if not int(group) <= 255:
+                        raise ValueError
+                return True
+
+            except ValueError:
+                return False
+
         ip = self.window.gst_ip.text()
 
         if valid_ipv4(ip):  # Regex match that it is a valid ip address
@@ -72,8 +71,10 @@ class GuiView(View):
     def set_qgc_port(self):
         port = self.window.gst_port.text()
         try:
-            if 0 < int(port) < 65535:
+            if 1024 < int(port) < 65535:
                 self.controller.set_qgc_port(port)
+            else:
+                raise ValueError()
         except ValueError:
             self.window.gst_port.setText("5600")
             self.error_window("{} is not a valid port!".format(port))

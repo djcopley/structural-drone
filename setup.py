@@ -24,11 +24,11 @@ setup(
         "write_to": "skeyes/version.py"
     },
     entry_points={
-        "console_scripts": [
-            "skeyes = skeyes.main:cli"
-        ],
+        # "console_scripts": [
+        #     "skeyes = skeyes.main:cli"
+        # ],
         "gui_scipts": [
-            "gskeyes = skeyes.main:gui"
+            "skeyes = skeyes.main:gui"
         ]
     }
 )

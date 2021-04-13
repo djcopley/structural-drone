@@ -20,8 +20,6 @@ class Action:
             "gutter": Actions.PAUSE
         }
 
-        # TODO Features should be loaded from names file
-
         self.drone = None
 
     def generate_action(self, feature):
@@ -34,4 +32,8 @@ class Action:
         await self.drone.connect(system_address=system_address)
 
     async def pause_mission(self):
-        pass
+        await self.drone.mission.pause_mission()
+
+    def set_action(self, img_class, action):
+        logger.debug("Action updated: class={}, action={}".format(img_class, action))
+        self.actions[img_class] = action

@@ -12,7 +12,10 @@ gpCam.livestream("start")
 cap = cv2.VideoCapture("udp://10.5.5.9:8554")
 while True:
     nmat, frame = cap.read()
-    cv2.imshow("GoPro OpenCV", frame)
+    print(nmat)
+    if nmat:
+        cv2.imshow("GoPro OpenCV", frame)
+
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
     if time() - t >= 1:
