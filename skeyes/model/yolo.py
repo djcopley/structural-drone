@@ -9,6 +9,13 @@ logger = logging.getLogger(__name__)
 
 class Detection:
     def __init__(self, name, class_id, confidence, box):
+        """
+
+        :param name:
+        :param class_id:
+        :param confidence:
+        :param box:
+        """
         self.name = name
         self.class_id = class_id
         self.confidence = confidence
@@ -30,6 +37,15 @@ class Detection:
 class YoloV4:
     def __init__(self, cfg: str, weights: str, names: list, input_size: int = 416, conf_threshold: float = 0.5,
                  nms_threshold: float = 0.4):
+        """
+
+        :param cfg:
+        :param weights:
+        :param names:
+        :param input_size:
+        :param conf_threshold:
+        :param nms_threshold:
+        """
         self.dnn = cv2.dnn_DetectionModel(cfg, weights)
 
         # Always prefer GPU acceleration
@@ -50,6 +66,11 @@ class YoloV4:
         self.nms_threshold = nms_threshold
 
     def run_inference(self, image: np.array):
+        """
+
+        :param image:
+        :return:
+        """
         classes, confidences, boxes = self.dnn.detect(image, confThreshold=self.conf_threshold,
                                                       nmsThreshold=self.nms_threshold)
         detections = []

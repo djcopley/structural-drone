@@ -58,3 +58,11 @@ Would be awesome to dockerize and take advantage of hardware acceleration
 
 In `action.py` devise some sort of object permanence scheme so that multiple actions are not being taken for the same 
 feature in two different frames.
+
+## Fix threading
+
+Threading does not exit gracefully. In addition, edge cases may cause a thread to continue running.
+
+## Try catch common errors and add the ability to reconnect to GoPro
+
+Common errors should be caught and program should continue to gracefully start. Allow the user to reconnect to GoPro.

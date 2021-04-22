@@ -10,6 +10,9 @@ logger = logging.getLogger(__name__)
 
 class Classifier:
     def __init__(self, ):
+        """
+
+        """
         # Model initialization
         self.img_size = 128
         self.input_shape = (self.img_size, self.img_size, 1)  # 1 for grayscale
@@ -57,6 +60,11 @@ class Classifier:
         self.gutter.load_weights(TF_CLASSIFIER_MODEL_GUTTER)
 
     def format_image(self, image):
+        """
+
+        :param image:
+        :return:
+        """
         resized_img = np.array(image).reshape(-1, self.img_size, self.img_size, 1)  # expected warning
         sobel_kernel_x = np.array(([[1, 2, 1], [0, 0, 0], [-1, -2, -1]]), np.float32) / 9
         sobel_kernel_y = np.array(([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]), np.float32) / 9
@@ -70,6 +78,12 @@ class Classifier:
         return new_img
 
     def predict(self, image, cls):
+        """
+
+        :param image:
+        :param cls:
+        :return:
+        """
         if cls == 'window':
             image = self.format_image(image)
             prediction = self.window.predict(image, batch_size=1)

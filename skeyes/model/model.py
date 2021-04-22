@@ -12,15 +12,24 @@ logger = logging.getLogger(__name__)
 
 class Model:
     def __init__(self):
+        """
+
+        """
         self.running = True
+
+        self.udp_stream_enabled = True
+        self.video_window_enabled = False  # TODO maybe add option to display independent video stream
 
         self.action = Action()
         # self.classifier = Classifier()
         self.video = Video()
         self.yolo = YoloV4(YOLO_MODEL_CFG, YOLO_MODEL_WEIGHTS, extract_class_names(YOLO_CLASS_NAMES))
-        # self.test = cv2.VideoCapture(0)
 
     def start(self):
+        """
+
+        :return:
+        """
         while self.running:
             # Get video frame
             frame = self.video.get_frame()
@@ -40,26 +49,57 @@ class Model:
                     # Generate action if defective
                     # if defective:
                     #     self.action.generate_action(detection.name)
+
                 # Stream video frame out to UDP port
-                self.video.stream_frame(frame)
+                if self.udp_stream_enabled:
+                    self.video.stream_frame(frame)
 
     def stop(self):
+        """
+
+        :return:
+        """
         self.running = False
-        self.video.release()
+        # self.video.release()
 
     def set_qgc_ip(self, ip):
+        """
+
+        :param ip:
+        :return:
+        """
         self.video.set_host(ip)
 
     def set_qgc_port(self, port):
+        """
+
+        :param port:
+        :return:
+        """
         self.video.set_port(port)
 
     def set_logging_file_path(self, fp):
+        """
+
+        :param fp:
+        :return:
+        """
         pass
 
     def get_actions(self):
+        """
+
+        :return:
+        """
         return
 
     def set_action(self, img_class, action):
+        """
+
+        :param img_class:
+        :param action:
+        :return:
+        """
         self.action.set_action(img_class, action)
 
 

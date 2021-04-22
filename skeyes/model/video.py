@@ -34,6 +34,12 @@ class CameraBufferCleanerThread(threading.Thread):
 
 class Video:
     def __init__(self, host="127.0.0.1", port="5600"):
+        """
+        Video class constructor method.
+
+        :param host: IP address of UDP stream recieving device
+        :param port: UDP stream port
+        """
         # Configure GoPro camera
         self._go_pro = GoProCamera.GoPro()
 
@@ -55,22 +61,39 @@ class Video:
         self._configure_stream()
 
     def set_host(self, host):
+        """
+        Method sets the host IP address.
+
+        :param host:
+        :return:
+        """
         self._host = host
         self._configure_stream()
 
     def set_port(self, port):
+        """
+
+        :param port:
+        :return:
+        """
         self._port = port
         self._configure_stream()
 
     def _configure_stream(self):
+        """
+
+        :return:
+        """
         if self._stream_device:
             # Release stream device handle first
             self._stream_device.release()
 
         codec = 0
         fps = 20
+
+        # TODO get a frame and calculate the img_dimension
         img_dimension = (432, 240)  # Video dimensions from the gopro stream
-        # img_dimension = (1280, 960)
+        # img_dimension = (1280, 720)
         is_color = True
 
         self._stream_device = cv2.VideoWriter(
@@ -79,6 +102,11 @@ class Video:
             cv2.CAP_GSTREAMER, codec, fps, img_dimension, is_color)
 
     def keep_alive(self):
+        """
+        Method sends keep-alive packets to the GoPro at pre-determined interals.
+
+        :return: None
+        """
         if time.time() - self._go_pro_last_checkin >= self._go_pro_keep_alive:
             # print("Checkin")
             self._sock.sendto("_GPHD_:0:0:2:0.000000\n".encode(), ("10.5.5.9", 8554))
@@ -87,6 +115,8 @@ class Video:
     def get_frame(self):
         """
         Method returns a frame from the specified video input device.
+
+        :return: A frame from the GoPro
         """
         # Make sure keep alive sends request to gopro
         self.keep_alive()
@@ -100,9 +130,18 @@ class Video:
         return frame  # BUG
 
     def stream_frame(self, frame):
+        """
+
+        :param frame:
+        :return:
+        """
         self._stream_device.write(frame)
 
     def release(self):
+        """
+
+        :return:
+        """
         self._capture_device.release()
         self._stream_device.release()
         self._go_pro.livestream("stop")

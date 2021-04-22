@@ -4,6 +4,13 @@ import cv2
 def image_crop(image, min_x, min_y, max_x, max_y):
     """
     Function crops a given image. Will break if min_x > max_x or min_y > max_y.
+
+    :param image:
+    :param min_x:
+    :param min_y:
+    :param max_x:
+    :param max_y:
+    :return:
     """
     assert min_x < max_x, "min_x must be smaller than max_x."
     assert min_y < max_y, "min_y must be smaller than max_y."
@@ -13,6 +20,16 @@ def image_crop(image, min_x, min_y, max_x, max_y):
 def image_annotate(image, min_x, min_y, max_x, max_y, text=None, damaged=False, thickness=2):
     """
     Function draws a box on an image and adds text. Text is optional.
+
+    :param image:
+    :param min_x:
+    :param min_y:
+    :param max_x:
+    :param max_y:
+    :param text:
+    :param damaged:
+    :param thickness:
+    :return:
     """
     # Color selection
     green = (0, 255, 0)
@@ -34,6 +51,11 @@ def image_annotate(image, min_x, min_y, max_x, max_y, text=None, damaged=False, 
 
 
 def extract_class_names(filename: str) -> list:
+    """
+
+    :param filename:
+    :return:
+    """
     with open(filename, 'rt') as f:
         classes = f.read().rstrip('\n').split('\n')
     return classes
