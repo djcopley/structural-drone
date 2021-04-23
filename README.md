@@ -6,10 +6,6 @@
 [Installation](#installation)<br>
 [Setup and Configuration](#setup-and-configruation)<br>
 
-<p align="center">
-  <img width="300" height="300" src="https://github.com/djcopley/structural-drone/blob/master/assets/logo.png">
-</p>
-
 ## Introduction
 
 Conventional approaches to building inspection are laborious, costly, and dangerous. As it stands, an inspector has to
