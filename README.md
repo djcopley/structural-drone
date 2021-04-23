@@ -102,10 +102,12 @@ and application.
 ### Skeyes Software Configuration
 
 ***Main Menu***
+
 The main screen contains a list of building features that the neural networks are trained to recognize. From this menu,
 you can control the action taken by the drone when any of these features are detected damaged.
 
 ***Settings Menu***
+
 Enable / Disable UDP Stream Checkbox
 
 1. UDP IP Address 
