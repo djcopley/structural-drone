@@ -82,10 +82,18 @@ python3 setup.py install
 The following section will describe tuning parameters, configuration, and use of the skeyes structural inspection drone
 and application.
 
-1. Preflight checklist 1.1 Propellers are tightly fastened 1.2 All devices are fastened securely (Especially battery and
-   GPS)
-   1.3 Make any hazards are clear of drone 1.4 Ensure that drone has GPS signal and connection to remote 1.5 Configure
-   failsafes
+1. Preflight checklist 
+   
+   1.1 Propellers are tightly fastened 
+   
+   1.2 All devices are fastened securely (Especially battery and GPS)
+   
+   1.3 Make any hazards are clear of drone 
+   
+   1.4 Ensure that drone has GPS signal and connection to remote 
+   
+   1.5 Configure failsafes
+   
 2. Plug in usb telemetry radio to ground control station
 3. Ensure ground control station is connected to GoPro wifi network
 4. Run the “Skeyes” graphical application and wait for the user interface to appear
@@ -100,14 +108,21 @@ you can control the action taken by the drone when any of these features are det
 ***Settings Menu***
 Enable / Disable UDP Stream Checkbox
 
-1. UDP IP Address This option allows the user to enter an IP address to stream to. This will be the device where the
-   processed video shows up.
-2. UDP Port This option allows the user to enter a UDP port to stream to. Make sure this matches with the port setting
-   in QGroundControl.
+1. UDP IP Address 
+   
+    This option allows the user to enter an IP address to stream to. This will be the device where the
+    processed video shows up.
+   
+2. UDP Port
+   
+    This option allows the user to enter a UDP port to stream to. Make sure this matches with the port setting
+    in QGroundControl.
 
 Enable / Disable File Logging
 
-1. File Path This option allows the user to specify a file path to save
+1. File Path 
+   
+    This option allows the user to specify a file path to save
 
 ***Known Issues***
 Sometimes QGroundControl can interfere with the GoPro video stream. If the skeyes GUI fails to launch, start by quitting
