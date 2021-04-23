@@ -25,13 +25,21 @@
 
 <section id="one" class="wrapper">
     <div class="inner">
-        <h1 class="code-line" data-line-start=0 data-line-end=1><a id="Readme_0"></a>Readme</h1>
-        <h3 class="code-line" data-line-start=1 data-line-end=2><a id="Table_of_Contents_1"></a>Table of Contents</h3>
-        <p class="has-line-data" data-line-start="2" data-line-end="6"><a href="#introduction">Introduction</a><br>
+        <h2 class="code-line" data-line-start=0 data-line-end=1><a id="Skeyes_Structural_Inspection_Drone_0"></a>Documentation
+        </h2>
+        <h3 class="code-line" data-line-start=2 data-line-end=3><a id="Table_of_Contents_2"></a>Table of Contents</h3>
+        <p class="has-line-data" data-line-start="3" data-line-end="6">
+            <a href="#files">Files</a><br>
+            <a href="#introduction">Introduction</a><br>
             <a href="#installation">Installation</a><br>
-            [Configuration and Use](#configuration and use)<br>
-            [Skeyes Software Configuration](#skeyes software configuration)</p>
-        <h2 class="code-line" data-line-start=7 data-line-end=8><a id="Introduction_7"></a>Introduction</h2>
+            <a href="#setup-and-configuration">Setup and Configuration</a></p>
+        <h2 class="code-line" data-line-start=7 data-line-end=8><a id="files"></a>Files</h2>
+        <ul class="actions">
+            <li><a href="assets/files/final_report.docx" class="button icon fa-download">Final Report</a></li>
+            <li><a href="assets/files/final_presentation.pptx" class="button icon fa-download">Final Presentation</a></li>
+            <li><a href="assets/files/testing_workbook.xlsx" class="button icon fa-download">Testing Workbook</a></li>
+        </ul>
+        <h2 class="code-line" data-line-start=7 data-line-end=8><a id="introduction"></a>Introduction</h2>
         <p class="has-line-data" data-line-start="9" data-line-end="10">Conventional approaches to building inspection
             are laborious, costly, and dangerous. As it stands, an inspector has to personally travel around any
             building he would like to inspect; furthermore, in the case of a particularly tall building, he would have
@@ -74,7 +82,7 @@
             an even more convenient and thorough approach to building inspection, while developing a novel method of
             machine learning implementation. Our goal is to make an easily-operable, low-risk, and sophisticated
             solution to the commonplace issue of building inspection.</p>
-        <h2 class="code-line" data-line-start=17 data-line-end=18><a id="Installation_17"></a>Installation</h2>
+        <h2 class="code-line" data-line-start=17 data-line-end=18><a id="installation"></a>Installation</h2>
         <p class="has-line-data" data-line-start="19" data-line-end="20">This following section will describe the
             installation of the skeyes structural inspection drone application. All required dependencies will be
             detailed; however, optional dependencies will not be covered. Please note that the directions are for and
@@ -110,8 +118,8 @@
                 drivers and the CUDA toolkit for hardware acceleration (outside the scope of this document)
             </li>
         </ol>
-        <h2 class="code-line" data-line-start=36 data-line-end=37><a id="Configuration_and_Use_36"></a>Configuration and
-            Use</h2>
+        <h2 class="code-line" data-line-start=36 data-line-end=37><a id="setup-and-configuration"></a>Setup and
+            Configruation</h2>
         <p class="has-line-data" data-line-start="38" data-line-end="39">The following section will describe tuning
             parameters, configuration, and use of the skeyes structural inspection drone and application. In addition to
             the steps outlined below, ensure that you are in a safe environment and that all hazards are removed from
@@ -127,16 +135,43 @@
             <li class="has-line-data" data-line-start="46" data-line-end="47">Plug in usb telemetry radio to ground
                 control station
             </li>
-            <li class="has-line-data" data-line-start="47" data-line-end="48">Run the “Skeyes” graphical application and
-                wait for the user interface to appear
-            </li>
-            <li class="has-line-data" data-line-start="48" data-line-end="49">Launch QGroundControl</li>
-            <li class="has-line-data" data-line-start="49" data-line-end="51">Ensure ground control station is connected
+            <li class="has-line-data" data-line-start="47" data-line-end="48">Ensure ground control station is connected
                 to GoPro wifi network
             </li>
+            <li class="has-line-data" data-line-start="48" data-line-end="49">Run the “Skeyes” graphical application and
+                wait for the user interface to appear
+            </li>
+            <li class="has-line-data" data-line-start="49" data-line-end="51">Launch QGroundControl</li>
         </ol>
-        <h2 class="code-line" data-line-start=51 data-line-end=52><a id="Skeyes_Software_Configuration_51"></a>Skeyes
-            Software Configuration</h2>
+        <h3 class="code-line" data-line-start=51 data-line-end=52><a id="Skeyes_Software_Configuration_51"></a>Skeyes
+            Software Configuration</h3>
+        <p class="has-line-data" data-line-start="52" data-line-end="54"><strong><em>Main Menu</em></strong><br>
+            The main screen contains a list of building features that the neural networks are trained to recognize. From
+            this menu, you can control the action taken by the drone when any of these features are detected damaged.
+        </p>
+        <p class="has-line-data" data-line-start="55" data-line-end="57"><strong><em>Settings Menu</em></strong><br>
+            Enable / Disable UDP Stream Checkbox</p>
+        <ol>
+            <li class="has-line-data" data-line-start="57" data-line-end="59">UDP IP Address<br>
+                This option allows the user to enter an IP address to stream to. This will be the device where the
+                processed video shows up.
+            </li>
+            <li class="has-line-data" data-line-start="59" data-line-end="62">UDP Port<br>
+                This option allows the user to enter a UDP port to stream to. Make sure this matches with the port
+                setting in QGroundControl.
+            </li>
+        </ol>
+        <p class="has-line-data" data-line-start="62" data-line-end="63">Enable / Disable File Logging</p>
+        <ol>
+            <li class="has-line-data" data-line-start="64" data-line-end="67">File Path<br>
+                This option allows the user to specify a file path to save
+            </li>
+        </ol>
+        <p class="has-line-data" data-line-start="67" data-line-end="69"><strong><em>Known Issues</em></strong><br>
+            Sometimes QGroundControl can interfere with the GoPro video stream. If the skeyes GUI fails to launch, start
+            by quitting both QGroundControl and the Skeyes application. Next make sure that the computer is connected to
+            the GoPro wifi network. Next, launch the skeyes application and wait for the graphical user interface to
+            display. Finally, start QGroundControl.</p>
     </div>
 </section>
 
@@ -148,7 +183,7 @@
                 Capstone Team 2
             </div>
             <ul class="icons">
-                <li><a href="https://github.com/djcopley/structural-drone/" class="icon fa-github"><span class="label">Github</span></a>
+                <li><a href="https://github.com/djcopley/" class="icon fa-github"><span class="label">Github</span></a>
                 </li>
             </ul>
         </div>
