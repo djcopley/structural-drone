@@ -4,7 +4,7 @@
 
 [Introduction](#introduction)<br>
 [Installation](#installation)<br>
-[Setup and Configuration](#setup-and-configruation)<br>
+[Setup and Configuration](#setup-and-configuration)<br>
 
 ## Introduction
 
@@ -77,7 +77,7 @@ python3 setup.py install
 5. Optionally, Install NVIDIA graphics drivers and the CUDA toolkit for hardware acceleration (outside the scope of this
    document)
 
-## Setup and Configruation
+## Setup and Configuration
 
 The following section will describe tuning parameters, configuration, and use of the skeyes structural inspection drone
 and application.
