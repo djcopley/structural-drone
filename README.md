@@ -1,14 +1,14 @@
 # Skeyes Structural Inspection Drone
 
-<p align="center">
-  <img width="300" height="300" src="https://github.com/djcopley/structural-drone/blob/master/assets/logo.png">
-</p>
-
 ### Table of Contents
 
 [Introduction](#introduction)<br>
 [Installation](#installation)<br>
-[Setup and Configuration](#setup%20and%20configuration)
+[Setup and Configuration](#setup-and-configruation)<br>
+
+<p align="center">
+  <img width="300" height="300" src="https://github.com/djcopley/structural-drone/blob/master/assets/logo.png">
+</p>
 
 ## Introduction
 
@@ -84,8 +84,7 @@ python3 setup.py install
 ## Setup and Configruation
 
 The following section will describe tuning parameters, configuration, and use of the skeyes structural inspection drone
-and application. In addition to the steps outlined below, ensure that you are in a safe environment and that all hazards
-are removed from the drones’ immediate path.
+and application.
 
 1. Preflight checklist 1.1 Propellers are tightly fastened 1.2 All devices are fastened securely (Especially battery and
    GPS)
